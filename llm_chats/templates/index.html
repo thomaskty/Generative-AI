@@ -35,27 +35,26 @@
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
-            <form method="post" action="{{ url_for('process_user_input') }}">
-                <div class="chat-input-container">
-                    <label for="userMessage" class="sr-only">Type your message:</label>
-                    <input type="text" id="userMessage" name="user_message" class="chat-input" placeholder="Type your message...">
-                    <button type="submit" class="chat-btn">Send Message</button>
-                </div>
-            </form>
-        </div>
-      </div>
-      <div class="row">
-        <div class='col-md-8'>
-            <div id="userMessageDisplay">
+            <div class="chat-container">
+                <form method="post" action="{{ url_for('process_user_input') }}">
+                    <div class="chat-input-container">
+                        <label for="userMessage" class="sr-only">Type your message:</label>
+                        <input type="text" id="userMessage" name="user_message" class="chat-input" placeholder="Type your message...">
+                        <button type="submit" class="chat-btn">Send Message</button>
+                    </div>
+                </form>
+            </div>
+            <div class="chat-container">
                 {% for user_message, processed_message in message_history %}
-                    <p>User: {{ user_message }}</p>
-                    <p>Response: {{ processed_message | safe}}</p>
+                    <div class="message-container">
+                        <p class="user-message">User: {{ user_message }}</p>
+                        <p class="response-message">Response: {{ processed_message | safe }}</p>
+                    </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
+      </div>
     </main>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

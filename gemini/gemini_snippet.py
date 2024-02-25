@@ -1,8 +1,9 @@
 # pip install -q -U google-generativeai
 import google.generativeai as genai
+import os 
 
 # define api key
-api_key = 'AIzaSyB_gNzSd-1rLD1ciM0vU82-ISMIcECNP-I'
+api_key = os.getenv('GOOGLE_API')
 genai.configure(api_key=api_key)
 
 # listing the available models
