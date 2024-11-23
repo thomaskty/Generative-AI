@@ -37,8 +37,6 @@ def upload_pdfs():
 
     # process the pdf1_text and pdf2_text 
     
-
-
     return render_template('index.html', message_history=message_history)
 
 def extract_text_from_pdf(pdf_file):
