@@ -1,0 +1,42 @@
+Project Name: SynthArt Generator
+Domain: Generative AI - Text-to-Image Synthesis
+
+Overview:
+SynthArt Generator is an internal prototype designed to generate high-quality digital artwork
+from natural language prompts. The project leverages diffusion-based generative models fine-tuned on
+curated art datasets.
+
+Key Components:
+1. Model Architecture:
+   - Base model: Stable Diffusion v2.1
+   - Fine-tuning: DreamBooth with LoRA for artist-style personalization
+   - Embedding model: intfloat/e5-small-v2 for prompt semantic alignment
+
+2. Data Pipeline:
+   - Dataset size: 120K high-resolution art images
+   - Sources: OpenArt and in-house licensed datasets
+   - Data augmentation: Random cropping, color jittering, and prompt rephrasing
+
+3. Evaluation Metrics:
+   - CLIP similarity score
+   - Human preference ranking
+   - Inception Score (IS): Target > 8.0
+
+4. Infrastructure:
+   - Training on Azure A100 GPU cluster
+   - Model weights stored in Azure Blob Storage
+   - Experiment tracking via MLflow
+
+5. Future Enhancements:
+   - Add multi-prompt composition support
+   - Integrate image editing and inpainting capabilities
+   - Optimize inference speed for edge deployment
+
+Team:
+Lead Engineer - Thomas K
+ML Engineer - Sarah D
+DevOps - Arjun M
+
+Status:
+Phase 2 - Fine-tuning & Evaluation
+Expected completion: Q4 2025
